@@ -2,13 +2,13 @@
   "name": "my-dream-app",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "http-server",
+    "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",  
-    "postinstall": "ng build --prod"
+    "pree2e": "webdriver-manager update",
+    "e2e": "protractor",
+    "preinstall": "npm install -g http-server",
+    "postinstall": "ng build && mv dist/* ."
   },
   "private": true,
   "dependencies": {
@@ -26,9 +26,7 @@
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26",
-    "typescript": "~3.1.6"
-  },
-  "devDependencies": {
+    "typescript": "~3.1.6",
     "@angular-devkit/build-angular": "~0.10.0",
     "@angular/language-service": "~7.0.0",
     "@types/node": "~8.9.4",
@@ -45,5 +43,8 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0"
+  },
+  "devDependencies": {
+    
   }
 }
